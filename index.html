@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự Án Tối Giản | The Sleek Project</title>
+    <!-- Tải Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cấu hình Tailwind cho màu sắc và font -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-blue': '#40e0d0', // Màu xanh ngọc neon
+                        'dark-bg': '#0a0a0a',   // Màu nền cực tối
+                        'dark-card': '#1a1a1a', // Màu nền card tối hơn
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        // Hiệu ứng nhấp nháy cho con trỏ (typing effect)
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        }
+                    },
+                    animation: {
+                        blink: 'blink 0.75s step-end infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Đảm bảo toàn bộ trang web sử dụng font Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Tạo hiệu ứng shadow neon cho các card */
+        .neon-shadow {
+            box-shadow: 0 0 10px rgba(64, 224, 208, 0.4), 0 0 20px rgba(64, 224, 208, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .neon-shadow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(64, 224, 208, 0.7), 0 0 30px rgba(64, 224, 208, 0.4);
+        }
+
+        /* Styling cho con trỏ gõ chữ */
+        #cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background-color: #40e0d0;
+            margin-left: 2px;
+            animation: blink 0.7s infinite;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-gray-200 min-h-screen antialiased">
+
+<!-- Header / Navbar -->
+<header class="p-4 md:p-6 border-b border-gray-800 sticky top-0 z-10 bg-dark-bg/90 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <!-- Logo/Tên -->
+        <a href="#" class="text-2xl font-bold text-neon-blue tracking-wider hover:text-white transition duration-300">
+            //CODEX
+        </a>
+        <!-- Menu cho Desktop -->
+        <nav class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#projects" class="text-gray-400 hover:text-neon-blue transition duration-200">Dự Án</a>
+            <a href="#skills" class="text-gray-400 hover:text-neon-blue transition duration-200">Kỹ Năng</a>
+            <a href="#contact" class="text-gray-400 hover:text-neon-blue transition duration-200">Liên Hệ</a>
+        </nav>
+        <!-- Nút hành động -->
+        <button class="px-4 py-2 bg-neon-blue text-dark-bg text-sm font-semibold rounded-lg hover:bg-white transition duration-300 shadow-lg">
+            Bắt Đầu
+        </button>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
+
+    <!-- Hero Section -->
+    <section class="text-center mb-20 md:mb-32">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white leading-tight mb-4">
+            <span id="typed-text"></span><span id="cursor"></span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+            Tạo ra các giải pháp kỹ thuật số tối ưu, từ ý tưởng đến sản phẩm hoàn chỉnh, với độ chính xác và tính thẩm mỹ cao nhất.
+        </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="mb-20 md:mb-32">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center border-b border-neon-blue/50 pb-4">
+            Các Dự Án Đã Thực Hiện
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card 1 -->
+            <div class="bg-dark-card p-6 rounded-xl neon-shadow">
+                <div class="text-3xl text-neon-blue mb-4">🚀</div> <!-- Icon placeholder -->
+                <h3 class="text-xl font-semibold text-white mb-2">Hệ Thống Phân Tích Dữ Liệu Lớn</h3>
+                <p class="text-gray-400 text-sm mb-4">
+                    Xây dựng nền tảng xử lý 100TB dữ liệu mỗi ngày với độ trễ dưới 50ms.
+                </p>
+                <a href="#" class="text-neon-blue hover:text-white text-sm font-medium transition duration-200">
+                    Xem chi tiết &rarr;
+                </a>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="bg-dark-card p-6 rounded-xl neon-shadow">
+                <div class="text-3xl text-neon-blue mb-4">🧠</div> <!-- Icon placeholder -->
+                <h3 class="text-xl font-semibold text-white mb-2">Mô Hình Học Sâu Cá Nhân Hóa</h3>
+                <p class="text-gray-400 text-sm mb-4">
+                    Phát triển mô hình AI cho đề xuất sản phẩm dựa trên hành vi người dùng.
+                </p>
+                <a href="#" class="text-neon-blue hover:text-white text-sm font-medium transition duration-200">
+                    Xem chi tiết &rarr;
+                </a>
+            </div>
+
+            <!-- Project Card 3 (Màu nổi bật hơn) -->
+            <div class="p-1 rounded-xl bg-gradient-to-br from-neon-blue to-purple-600">
+                <div class="bg-dark-card p-6 rounded-lg h-full">
+                    <div class="text-3xl text-white mb-4">🌐</div> <!-- Icon placeholder -->
+                    <h3 class="text-xl font-semibold text-white mb-2">Ứng Dụng Web Tương Tác Cao</h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                        Thiết kế giao diện người dùng UX/UI hiện đại và tối ưu cho thiết bị di động.
+                    </p>
+                    <a href="#" class="text-neon-blue hover:text-white text-sm font-medium transition duration-200">
+                        Xem chi tiết &rarr;
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="mb-20 md:mb-32">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+            Bộ Kỹ Năng Cốt Lõi
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4">
+            <!-- Skill Tags -->
+            <span class="px-4 py-2 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium border border-neon-blue/50">React.js</span>
+            <span class="px-4 py-2 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium border border-neon-blue/50">Node.js / Express</span>
+            <span class="px-4 py-2 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium border border-neon-blue/50">TypeScript</span>
+            <span class="px-4 py-2 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium border border-neon-blue/50">Tailwind CSS</span>
+            <span class="px-4 py-2 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium border border-neon-blue/50">Cloud (GCP/AWS)</span>
+            <span class="px-4 py-2 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium border border-neon-blue/50">Microservices</span>
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer id="contact" class="bg-dark-card border-t border-gray-800 p-8">
+    <div class="max-w-7xl mx-auto text-center">
+        <h3 class="text-2xl font-semibold text-white mb-4">Sẵn Sàng Cho Dự Án Tiếp Theo Của Bạn</h3>
+        <p class="text-gray-400 mb-6">
+            Liên hệ ngay để biến ý tưởng lớn thành hiện thực với công nghệ tiên tiến nhất.
+        </p>
+        <a href="mailto:contact@example.com" class="inline-block px-6 py-3 bg-neon-blue text-dark-bg text-md font-semibold rounded-lg hover:bg-white transition duration-300 shadow-xl shadow-neon-blue/40">
+            Gửi Mail Cho Tôi
+        </a>
+        <p class="text-gray-600 text-sm mt-8">
+            &copy; 2024 //CODEX. All Rights Reserved. Thiết kế bởi Gemini.
+        </p>
+    </div>
+</footer>
+
+<!-- JavaScript cho Hiệu Ứng Gõ Chữ (Typing Effect) -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const typedTextElement = document.getElementById('typed-text');
+        const phrases = [
+            "Chào mừng đến với kỷ nguyên số.",
+            "Sức mạnh của công nghệ hiện đại.",
+            "Thiết kế tối giản, hiệu năng tối đa.",
+            "Tầm nhìn kỹ thuật số sắc nét."
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100; // Tốc độ gõ
+        let delayTime = 1500; // Độ trễ giữa các câu
+
+        function type() {
+            // Lấy câu hiện tại
+            const currentPhrase = phrases[phraseIndex];
+
+            if (isDeleting) {
+                // Xóa ký tự
+                typedTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50; // Tốc độ xóa nhanh hơn
+            } else {
+                // Gõ ký tự
+                typedTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100; // Tốc độ gõ bình thường
+            }
+
+            // Kiểm tra điều kiện dừng/chuyển đổi
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                // Đã gõ xong, bắt đầu xóa sau 1 khoảng trễ
+                typingSpeed = delayTime;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Đã xóa xong, chuyển sang câu tiếp theo
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 200; // Tốc độ tạm dừng trước khi gõ câu mới
+            }
+
+            // Lặp lại hàm type sau khoảng thời gian typingSpeed
+            setTimeout(type, typingSpeed);
+        }
+
+        // Bắt đầu hiệu ứng gõ chữ
+        type();
+    });
+</script>
+</body>
+</html>
